@@ -17,19 +17,27 @@ angular
     'ngSanitize',
     'ngTouch'
   ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
+  .config(function ($stateProvider) {
+    $stateProvider
+      .state('main', {
+        url:'/',
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
-        controllerAs: 'main'
+        abstract: true,
+        data: {
+
+        }
       })
-      .when('/about', {
+      .state('about', {
+        url:'/about',
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
-        controllerAs: 'about'
+        abstract: true,
+        data: {
+
+        }
       })
-      .otherwise({
-        redirectTo: '/'
+      .state("otherwise", {
+        url : '/'
       });
   });
