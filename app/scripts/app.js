@@ -13,17 +13,17 @@ angular
     'ngAnimate',
     'ngCookies',
     'ngResource',
-    'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ui.router'
   ])
-  .config(function ($stateProvider) {
+  .config(function ($stateProvider, $locationProvider) {
     $stateProvider
       .state('main', {
         url:'/',
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
-        abstract: true,
+        abstract: false,
         data: {
 
         }
@@ -32,7 +32,7 @@ angular
         url:'/about',
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
-        abstract: true,
+        abstract: false,
         data: {
 
         }
@@ -40,4 +40,6 @@ angular
       .state("otherwise", {
         url : '/'
       });
+
+      $locationProvider.html5Mode(true);
   });
